@@ -3,13 +3,27 @@
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    print_r($arrayJson); exit();
+    
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+
+    if($message = "ส่วนตัว"){
+        if($arrayJson['source']['userId']=='U8483f2dfb2a7c1e179ad5cf183743a05'){   
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "ข้อความส่วนตัวเฉพาะ phatkung เท่านั้น";
+        replyMsg($arrayHeader,$arrayPostData);
+        }else{
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "คุณไม่มีสิทธิ์ในส่วนนี้";
+        replyMsg($arrayHeader,$arrayPostData);
+        }
+    }
     
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
