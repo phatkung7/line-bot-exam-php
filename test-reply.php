@@ -12,10 +12,10 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     if($message = "ส่วนตัว"){   
-        $uuid = $arrayJson['source']['0']['userId'];
+        $userID = $arrayJson['events'][0]['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "userId=".$uuid;
+        $arrayPostData['messages'][0]['text'] = "userId=".$userID;
         replyMsg($arrayHeader,$arrayPostData);
     }
     
