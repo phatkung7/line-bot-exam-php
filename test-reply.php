@@ -10,19 +10,17 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+    $userID = $arrayJson['events'][0]['source']['userId'];
 
-//     if($message = "ส่วนตัว"){   
-//         $userID = $arrayJson['events'][0]['source']['userId'];
-//         if($userID=='U8483f2dfb2a7c1e179ad5cf183743a05'){
-//             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-//             $arrayPostData['messages'][0]['type'] = "text";
-//             $arrayPostData['messages'][0]['text'] = "สิทธิ์เฉพาะคุณเท่านั้น";
-//             $arrayPostData['messages'][1]['type'] = "sticker";
-//             $arrayPostData['messages'][1]['packageId'] = "2";
-//             $arrayPostData['messages'][1]['stickerId'] = "171";
-//             replyMsg($arrayHeader,$arrayPostData);
-//         }
-//     }
+    if($message = "ส่วนตัว" && $userID=='U8483f2dfb2a7c1e179ad5cf183743a05'){   
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "สิทธิ์เฉพาะคุณเท่านั้น";
+            $arrayPostData['messages'][1]['type'] = "sticker";
+            $arrayPostData['messages'][1]['packageId'] = "2";
+            $arrayPostData['messages'][1]['stickerId'] = "171";
+            replyMsg($arrayHeader,$arrayPostData);
+    }
     
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
