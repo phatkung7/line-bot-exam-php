@@ -21,11 +21,6 @@
             $arrayPostData['messages'][1]['packageId'] = "2";
             $arrayPostData['messages'][1]['stickerId'] = "171";
             replyMsg($arrayHeader,$arrayPostData);
-        }else{
-            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "คุณไม่มีสิทธิ์ในส่วนนี้";
-            replyMsg($arrayHeader,$arrayPostData);
         }
     }
     
