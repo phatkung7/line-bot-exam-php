@@ -16,13 +16,10 @@
         if($userID=='U8483f2dfb2a7c1e179ad5cf183743a05'){
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "ข้อความนี้สำหรับ Phatkung เท่านั้น";
-            replyMsg($arrayHeader,$arrayPostData);
-            $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/800px-Gatto_europeo4.jpg";
-            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $arrayPostData['messages'][0]['type'] = "image";
-            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
-            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
+            $arrayPostData['messages'][0]['text'] = "สิทธิ์เฉพาะคุณเท่านั้น";
+            $arrayPostData['messages'][1]['type'] = "sticker";
+            $arrayPostData['messages'][1]['packageId'] = "2";
+            $arrayPostData['messages'][1]['stickerId'] = "171";
             replyMsg($arrayHeader,$arrayPostData);
         }else{
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
