@@ -12,7 +12,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
     $userID = $arrayJson['events'][0]['source']['userId'];
 
-    if($message = "ส่วนตัว" && $userID=='U8483f2dfb2a7c1e179ad5cf183743a05'){   
+    if($userID == 'U8483f2dfb2a7c1e179ad5cf183743a05' && $message == "ส่วนตัว"){   
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "สิทธิ์เฉพาะคุณเท่านั้น";
