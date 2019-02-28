@@ -3,14 +3,14 @@
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    
+    print_r($arrayJson); exit();
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-    var_dump($arrayJson); exit();
+    
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
