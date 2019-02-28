@@ -16,6 +16,7 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
         replyMsg($arrayHeader,$arrayPostData);
+        var_dump($arrayJson['source']['userId']);
     }
     #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
