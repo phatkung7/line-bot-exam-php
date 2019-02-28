@@ -10,7 +10,7 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-
+    //$uuid = $arrayJson['source']['userId'];
     if($message = "ส่วนตัว"){
         if($arrayJson['source']['0']['userId']=='U8483f2dfb2a7c1e179ad5cf183743a05'){   
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -18,9 +18,10 @@
         $arrayPostData['messages'][0]['text'] = "ข้อความส่วนตัวเฉพาะ phatkung เท่านั้น";
         replyMsg($arrayHeader,$arrayPostData);
         }else{
+        $uuid = $arrayJson['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "คุณไม่มีสิทธิ์ในส่วนนี้";
+        $arrayPostData['messages'][0]['text'] = $uuid;
         replyMsg($arrayHeader,$arrayPostData);
         }
     }
