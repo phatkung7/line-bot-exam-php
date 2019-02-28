@@ -21,7 +21,7 @@
         $uuid = $arrayJson['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $uuid;
+        $arrayPostData['messages'][0]['text'] = "userId=".$uuid;
         replyMsg($arrayHeader,$arrayPostData);
         }
     }
