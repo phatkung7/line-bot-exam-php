@@ -13,10 +13,22 @@
 
     if($message = "ส่วนตัว"){   
         $userID = $arrayJson['events'][0]['source']['userId'];
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "userId=".$userID;
-        replyMsg($arrayHeader,$arrayPostData);
+        if($userID=='U8483f2dfb2a7c1e179ad5cf183743a05'){
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "ข้อความนี้สำหรับ Phatkung เท่านั้น";
+            $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/800px-Gatto_europeo4.jpg";
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
+            replyMsg($arrayHeader,$arrayPostData);
+        }else{
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "คุณไม่มีสิทธิ์ในส่วนนี้";
+            replyMsg($arrayHeader,$arrayPostData);
+        }
     }
     
 #ตัวอย่าง Message Type "Text"
