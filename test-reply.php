@@ -23,6 +23,12 @@
     //         replyMsg($arrayHeader,$arrayPostData);
     // }
     switch ($message) {
+    case "ผู้ใช้งานใหม่":
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของงท่านคือ ".$userID. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        replyMsg($arrayHeader,$arrayPostData);
+        break;
     case "กรมควบคุมโรค":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
