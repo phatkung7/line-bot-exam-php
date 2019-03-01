@@ -39,7 +39,11 @@
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/boe";
-        $image_url = "http://203.157.15.32/chart/x1551426740.png";
+        // $image_url = "http://203.157.15.32/chart/x1551426740.png";
+        // $arrayPostData['messages'][1]['type'] = "image";
+        // $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+        // $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
+        $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
         $arrayPostData['messages'][1]['type'] = "image";
         $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
         $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
