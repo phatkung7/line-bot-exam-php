@@ -39,6 +39,10 @@
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/boe";
+        $image_url = "http://203.157.15.32/chart/x1551426740.png";
+        $arrayPostData['messages'][1]['type'] = "image";
+        $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+        $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
         replyMsg($arrayHeader,$arrayPostData);
         break;
     case "สำนักระบาดวิทยา":
