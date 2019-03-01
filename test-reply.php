@@ -40,9 +40,13 @@
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "http://203.157.15.110/BoeApps/";
-          $arrayPostData['messages'][1]['type'] = "sticker";
-          $arrayPostData['messages'][1]['packageId'] = "2";
-          $arrayPostData['messages'][1]['stickerId'] = "171";
+          // $arrayPostData['messages'][1]['type'] = "sticker";
+          // $arrayPostData['messages'][1]['packageId'] = "2";
+          // $arrayPostData['messages'][1]['stickerId'] = "171";
+          $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
+          $arrayPostData['messages'][1]['type'] = "image";
+          $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+          $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
           replyMsg($arrayHeader,$arrayPostData);
         }else{
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
