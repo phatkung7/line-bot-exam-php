@@ -43,10 +43,10 @@
         // $arrayPostData['messages'][1]['type'] = "image";
         // $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
         // $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
-        $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
-        $arrayPostData['messages'][1]['type'] = "image";
-        $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
-        $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
+//         $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
+//         $arrayPostData['messages'][1]['type'] = "image";
+//         $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+//         $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
         replyMsg($arrayHeader,$arrayPostData);
         break;
     case "สำนักระบาดวิทยา":
