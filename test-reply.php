@@ -40,6 +40,15 @@
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);
         break;
+       case "เวร sat wk 10":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $text_msg = "เวร SAT - wk10 มีรายชื่อดังนี้<br>";
+            $text_msg .= "1. พญ.ภาวินี ด้วงเงิน สำนักระบาดวิทยา - Supervisor<br>";
+            $text_msg .= "2. นางสาวธนัญญา สุทธวงค์ สำนักระบาดวิทยา (FETH) - Supervisor Assistant<br>";
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = $text_msg;
+            replyMsg($arrayHeader,$arrayPostData);
+        break;
     }
 //     case "กรมควบคุมโรค":
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
