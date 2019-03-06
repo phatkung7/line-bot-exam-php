@@ -57,7 +57,7 @@
           // $arrayPostData['messages'][1]['type'] = "sticker";
           // $arrayPostData['messages'][1]['packageId'] = "2";
           // $arrayPostData['messages'][1]['stickerId'] = "171";
-          $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
+          $image_url = "https://flu.ddc.moph.go.th/img-bot/line-bot.png";
           $arrayPostData['messages'][1]['type'] = "image";
           $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
           $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
