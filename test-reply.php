@@ -13,75 +13,85 @@
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
 
-    // if($userID == 'U8483f2dfb2a7c1e179ad5cf183743a05' && $message == "ส่วนตัว"){
-    //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    //         $arrayPostData['messages'][0]['type'] = "text";
-    //         $arrayPostData['messages'][0]['text'] = "สิทธิ์เฉพาะคุณเท่านั้น";
-    //         $arrayPostData['messages'][1]['type'] = "sticker";
-    //         $arrayPostData['messages'][1]['packageId'] = "2";
-    //         $arrayPostData['messages'][1]['stickerId'] = "171";
-    //         replyMsg($arrayHeader,$arrayPostData);
-    // }
     switch ($message) {
     case "ผู้ใช้งานใหม่":
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของงท่านคือ ".$userID. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
-        replyMsg($arrayHeader,$arrayPostData);
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของงท่านคือ ".$userID. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+            replyMsg($arrayHeader,$arrayPostData);
         break;
-    case "กรมควบคุมโรค":
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "http://ddc.moph.go.th";
-        replyMsg($arrayHeader,$arrayPostData);
+     case "estimates การเบิกจ่าย":
+            $image_url = "https://flu.ddc.moph.go.th/img-bot/estimates-1.jpg";
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
+            replyMsg($arrayHeader,$arrayPostData);
         break;
-    case "ระบาด":
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/boe";
-        // $image_url = "http://203.157.15.32/chart/x1551426740.png";
-        // $arrayPostData['messages'][1]['type'] = "image";
-        // $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
-        // $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
-//         $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
-//         $arrayPostData['messages'][1]['type'] = "image";
-//         $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
-//         $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
-        replyMsg($arrayHeader,$arrayPostData);
+      case "cognos การเบิกจ่าย":
+            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/cognos-1.bmp";
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/cognos-2.bmp";
+            $arrayPostData['messages'][1]['type'] = "image";
+            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+            replyMsg($arrayHeader,$arrayPostData);
         break;
-    case "สำนักระบาดวิทยา":
-        if($userID == 'U8483f2dfb2a7c1e179ad5cf183743a05'){
-          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = "http://203.157.15.110/BoeApps/";
-          // $arrayPostData['messages'][1]['type'] = "sticker";
-          // $arrayPostData['messages'][1]['packageId'] = "2";
-          // $arrayPostData['messages'][1]['stickerId'] = "171";
-          $image_url = "https://flu.ddc.moph.go.th/img-bot/line-bot.png";
-          $arrayPostData['messages'][1]['type'] = "image";
-          $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
-          $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
-          replyMsg($arrayHeader,$arrayPostData);
-        }else{
-          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/boe";
-          replyMsg($arrayHeader,$arrayPostData);
-        }
-        break;
-    case "สำนัก ต":
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/thaigcd";
-        replyMsg($arrayHeader,$arrayPostData);
-        break;
-    case "สำนักโรคติดต่อทั่วไป":
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/thaigcd";
-        replyMsg($arrayHeader,$arrayPostData);
-        break;
-    }
+    
+//     case "กรมควบคุมโรค":
+//         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+//         $arrayPostData['messages'][0]['type'] = "text";
+//         $arrayPostData['messages'][0]['text'] = "http://ddc.moph.go.th";
+//         replyMsg($arrayHeader,$arrayPostData);
+//         break;
+//     case "ระบาด":
+//         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+//         $arrayPostData['messages'][0]['type'] = "text";
+//         $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/boe";
+//         // $image_url = "http://203.157.15.32/chart/x1551426740.png";
+//         // $arrayPostData['messages'][1]['type'] = "image";
+//         // $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+//         // $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
+// //         $image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg";
+// //         $arrayPostData['messages'][1]['type'] = "image";
+// //         $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+// //         $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
+//         replyMsg($arrayHeader,$arrayPostData);
+//         break;
+//     case "สำนักระบาดวิทยา":
+//         if($userID == 'U8483f2dfb2a7c1e179ad5cf183743a05'){
+//           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+//           $arrayPostData['messages'][0]['type'] = "text";
+//           $arrayPostData['messages'][0]['text'] = "http://203.157.15.110/BoeApps/";
+//           // $arrayPostData['messages'][1]['type'] = "sticker";
+//           // $arrayPostData['messages'][1]['packageId'] = "2";
+//           // $arrayPostData['messages'][1]['stickerId'] = "171";
+//           $image_url = "https://flu.ddc.moph.go.th/img-bot/line-bot.png";
+//           $arrayPostData['messages'][1]['type'] = "image";
+//           $arrayPostData['messages'][1]['originalContentUrl'] = $image_url;
+//           $arrayPostData['messages'][1]['previewImageUrl'] = $image_url;
+//           replyMsg($arrayHeader,$arrayPostData);
+//         }else{
+//           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+//           $arrayPostData['messages'][0]['type'] = "text";
+//           $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/boe";
+//           replyMsg($arrayHeader,$arrayPostData);
+//         }
+//         break;
+//     case "สำนัก ต":
+//         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+//         $arrayPostData['messages'][0]['type'] = "text";
+//         $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/thaigcd";
+//         replyMsg($arrayHeader,$arrayPostData);
+//         break;
+//     case "สำนักโรคติดต่อทั่วไป":
+//         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+//         $arrayPostData['messages'][0]['type'] = "text";
+//         $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office/view/thaigcd";
+//         replyMsg($arrayHeader,$arrayPostData);
+//         break;
+//     }
 
 
     //
