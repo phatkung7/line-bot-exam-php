@@ -89,7 +89,7 @@
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);
         break;
-        case "สถานการณ์ dfh":
+        case "สถานการณ์ dhf":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
             $arrayPostData['messages'][0]['type'] = "image";
