@@ -17,10 +17,11 @@
     case "ผู้ใช้งานใหม่":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของงท่านคือ ".$userID. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+            $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$userID. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
             replyMsg($arrayHeader,$arrayPostData);
         break;
      case "estimates การเบิกจ่าย":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url = "https://flu.ddc.moph.go.th/img-bot/estimates-1.jpg";
             $arrayPostData['messages'][0]['type'] = "image";
             $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
@@ -28,6 +29,7 @@
             replyMsg($arrayHeader,$arrayPostData);
         break;
       case "cognos การเบิกจ่าย":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/cognos-1.bmp";
             $arrayPostData['messages'][0]['type'] = "image";
             $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
