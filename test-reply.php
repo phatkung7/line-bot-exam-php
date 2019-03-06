@@ -42,15 +42,15 @@
         break;
        case "เวร sat wk 10":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $text_msg = "เวร SAT - wk10 มีรายชื่อดังนี้";
-            $text_msg .= "1. พญ.ภาวินี ด้วงเงิน สำนักระบาดวิทยา - Supervisor";
-            $text_msg .= "2. นางสาวธนัญญา สุทธวงค์ สำนักระบาดวิทยา (FETH) - Supervisor Assistant";
-            $text_msg .= "3. นางอินท์ฉัตร สุขเกษม สำนักระบาดวิทยา (FETH) - Incharge 1";
-            $text_msg .= "4.นางสาวณัฐกฤตา บริบูรณ์ สำนักโรคไม่ติดต่อ - Incharge 2";
-            $text_msg .= "5.นางสาวกนกอร งามนัก ส.ควบคุมเครื่องดื่มแอลกอฮอล์ - Incharge 2";
-            $text_msg .= "6. นางคัดคนางค์ ศรีพัฒนะพิพัฒน์ กอง.ครฉ. - SAT Manager";
-            $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = $text_msg;
+            $text_msg = "เวร SAT - wk10 มีรายชื่อดังนี้"."\n";
+            $text_msg .= "1. พญ.ภาวินี ด้วงเงิน สำนักระบาดวิทยา - Supervisor"."\n";
+            $text_msg .= "2. นางสาวธนัญญา สุทธวงค์ สำนักระบาดวิทยา (FETH) - Supervisor Assistant"."\n";
+            $text_msg .= "3. นางอินท์ฉัตร สุขเกษม สำนักระบาดวิทยา (FETH) - Incharge 1"."\n";
+            $text_msg .= "4.นางสาวณัฐกฤตา บริบูรณ์ สำนักโรคไม่ติดต่อ - Incharge 2"."\n";
+            $text_msg .= "5.นางสาวกนกอร งามนัก ส.ควบคุมเครื่องดื่มแอลกอฮอล์ - Incharge 2"."\n";
+            $text_msg .= "6. นางคัดคนางค์ ศรีพัฒนะพิพัฒน์ กอง.ครฉ. - SAT Manager"."\n";
+            $arrayPostData['messages'][0]['type'] = "text"."\n";
+            $arrayPostData['messages'][0]['text'] = $text_msg."\n";
             replyMsg($arrayHeader,$arrayPostData);
         break;
     }
