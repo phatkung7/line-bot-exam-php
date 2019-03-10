@@ -53,6 +53,25 @@
             $arrayPostData['messages'][0]['text'] = $text_msg;
             replyMsg($arrayHeader,$arrayPostData);
         break;
+        case "เวร jit wk 10":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $text_msg = "เวร JIT - wk10 มีรายชื่อดังนี้"."\n";
+            $text_msg .= "1. นพ.หิรัญวุฒิ แพร่คุณธรรม สำนักระบาดวิทยา - Chief\n";
+            $text_msg .= "2. นางสาวกรรณิการ์ นางสาวกรรณิการ์ สำนักระบาดวิทยา - PI/Co-PI\n";
+            $text_msg .= "3. นางสาวจรรยา อุปมัย กองควบคุมโรคและภัยสุขภาพฯ - PI/Co-PI 1\n";
+            $text_msg .= "4. นางนิรมล ปัญสุวรรณ สำนักระบาดวิทยา - Interview 1\n";
+            $text_msg .= "5. นายสมาน สยุมภูรุจินันท์ สำนักระบาดวิทยา - Incharge 2\n";
+            $text_msg .= "6. นางสาวพรพรรณ กะตะจิตต์ สถาบันวิจัย จัดการความรู้ และมาตรฐานการควบคุมโรค - Interview 2\n";
+	        $text_msg .= "7. นางสาวปรัชญา ประจง กองควบคุมโรคและภัยสุขภาพในภาวะฉุกเฉิน - Interview 2\n";
+	        $text_msg .= "8. นางสาววรวรรณ กลิ่นสุภา กองโรคป้องกันด้วยวัคฉีน - Interview 2\n";
+	        $text_msg .= "9. นางสาวเสาวนีย์ จุลวงค์ สถาบันเวชศาสตร์ป้องกัน - Interview 2\n";
+	        $text_msg .= "10. นางสาวเพ็ญศิริ  ยะหัวดง สำนักระบาดวิทยา - Admin\n";
+            $text_msg .= "11. นางสาวสุหทัย พลทางกลาง สำนักระบาดวิทยา - Admin\n";
+	        $text_msg .= "12. นางสาวฉันท์ชนก อินทร์ศรี สำนักระบาดวิทยา - Admin";
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = $text_msg;
+            replyMsg($arrayHeader,$arrayPostData);
+        break;
         case "สถานการณ์ ไข้หวัดใหญ่":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
