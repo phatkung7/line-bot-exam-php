@@ -125,6 +125,12 @@
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);
         break;
+        case "พรบ โรคติดต่อ":
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office_other/view/law/7/8";
+        replyMsg($arrayHeader,$arrayPostData);
+        break;
     }
 //     case "กรมควบคุมโรค":
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
