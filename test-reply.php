@@ -1,35 +1,31 @@
 <?php
     $accessToken = "BFp/k4llCyFwkRAb8hegDLslqqkiN1DGRrjmy5A5S4I7B/pCtGlRmgiEcI0nJH4rn2x+nwtwKPbkpiakQRzG9boMvYi+zulp6XXp2fI7U+roDbdhUN8P7V6y+MI1EQNkPOzMswduTYeyarU/gti+egdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
     // Query String
     $q = (!empty($_GET['q'])) ? $_GET['q']  : '0' ;
-
     switch ($message) {
     case "สถานการณ์โรค" :
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "กรุณาเลือกชื่อโรคที่ต้องการดูสถานการณ์";
+            $arrayPostData['messages'][0]['text'] = "Hello Quick Reply!!!";
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Postback"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
-            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคเลือดออก";
+            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "ไข้เลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "โรคมือเท้าปาก"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "Postback"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=2";
-            $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "สถานการณ์-โรคมือเท้าปาก";
+            $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "มือเท้าปาก";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
 //             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
@@ -181,7 +177,6 @@
 //         $arrayPostData['messages'][0]['text'] = "เราไม่เข้าใจคำถามของท่าน กรุณาใช้คำถามรูปแบบดังนี้ เช่น สถานการณ์ ไข้เลือดออก ,เวร sat wk 10 ,estimates การเบิกจ่าย";
 //         replyMsg($arrayHeader,$arrayPostData);
     }
-
 	if($q=="1"){
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
@@ -258,8 +253,6 @@
 //         replyMsg($arrayHeader,$arrayPostData);
 //         break;
 //     }
-
-
     //
     // #ตัวอย่าง Message Type "Text"
     // if($message == "สวัสดี"){
