@@ -13,7 +13,7 @@
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
     // Query String
-    $disease = isset($_GET['dis']) ? $_GET['dis'] : "";
+    $disease = (isset($_GET['dis'])) ? $_GET['dis'] : "";
 
     switch ($message) {
     case "สถานการณ์โรค" :
@@ -292,19 +292,19 @@
     case "dhf":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
         break;
     case "hfm":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
         break;
     case "flu":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
         break;
      default:
