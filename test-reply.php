@@ -13,7 +13,8 @@
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
     // Query String
-    $query = (isset($_GET['itemid'])) ? $_GET['itemid']  : '' ;
+    $query = (!empty($_GET['itemid'])) ? $_GET['itemid']  : '' ;
+    echo $query;
 
     switch ($message) {
     case "สถานการณ์โรค" :
@@ -294,16 +295,21 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-    }elseif($query="hfm"){
+    }else if($query="hfm"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-    }elseif($query="flu"){
+    }else if($query="flu"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
+    }else{
+	$arrayPostData['messages'][0]['type'] = "sticker";
+        $arrayPostData['messages'][0]['packageId'] = "2";
+        $arrayPostData['messages'][0]['stickerId'] = "171";
+	replyMsg($arrayHeader,$arrayPostData);
     }
 
 function replyMsg($arrayHeader,$arrayPostData){
