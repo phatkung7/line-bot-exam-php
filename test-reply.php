@@ -177,7 +177,7 @@
 //         $arrayPostData['messages'][0]['text'] = "เราไม่เข้าใจคำถามของท่าน กรุณาใช้คำถามรูปแบบดังนี้ เช่น สถานการณ์ ไข้เลือดออก ,เวร sat wk 10 ,estimates การเบิกจ่าย";
 //         replyMsg($arrayHeader,$arrayPostData);
     }
-	if($q=="1"){
+	if($q="1"){
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
             $arrayPostData['messages'][0]['type'] = "image";
@@ -188,7 +188,7 @@
             $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);	
-	}else if($q=="2"){
+	}else if($q="2"){
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
             $arrayPostData['messages'][0]['type'] = "image";
