@@ -18,9 +18,9 @@
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "Hello Quick Reply!!!";
-	    $arrayPostData['quickReply']['items'][0]['type'] = "action";
-            $arrayPostData['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
-	    $arrayPostData['quickReply']['items'][0]['action']['label'] = "Camera Roll"; 
+	    $arrayPostData['messages']['quickReply']['items'][0]['type'] = "action";
+            $arrayPostData['messages']['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
+	    $arrayPostData['messages']['quickReply']['items'][0]['action']['label'] = "Camera Roll"; 
 	    replyMsg($arrayHeader,$arrayPostData);	    
 	break;
     case "ผู้ใช้งานใหม่":
