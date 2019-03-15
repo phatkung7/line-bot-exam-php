@@ -25,11 +25,11 @@
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Postback"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "ไข้เลือดออก";
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
-            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Postback"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=2";
-            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "มือเท้าปาก";
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
+            $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "Postback"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=2";
+            $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "มือเท้าปาก";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
 //             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
