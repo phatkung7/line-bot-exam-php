@@ -12,9 +12,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
-    // Query String
-    $q = (!empty($_GET['q'])) ? $_GET['q']  : '' ;
-
+    
     switch ($message) {
     case "สถานการณ์โรค" :
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -33,7 +31,7 @@
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['label'] = "โรคไข้หวัดใหญ่"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "q=2";
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "q=3";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['displayText'] = "สถานการณ์-โรคไข้หวัดใหญ่";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
@@ -139,18 +137,6 @@
             replyMsg($arrayHeader,$arrayPostData);
         break;
         case "สถานการณ์ dhf":
-            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
-            $arrayPostData['messages'][0]['type'] = "image";
-            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
-            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
-            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/dhf-graph.png";
-            $arrayPostData['messages'][1]['type'] = "image";
-            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
-            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
-            replyMsg($arrayHeader,$arrayPostData);
-        break;
-	case "สถานการณ์-โรคไข้เลือดออก":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
             $arrayPostData['messages'][0]['type'] = "image";
@@ -299,6 +285,29 @@
     //     $arrayPostData['messages'][1]['stickerId'] = "131";
     //     replyMsg($arrayHeader,$arrayPostData);
     // }
+// Query String
+    $query = (!empty($_GET['q'])) ? $_GET['q']  : '' ;
+    switch ($query) {
+    case "1":
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        replyMsg($arrayHeader,$arrayPostData);
+        break;
+    case "2":
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        replyMsg($arrayHeader,$arrayPostData);
+        break;
+    case "3":
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        replyMsg($arrayHeader,$arrayPostData);
+        break;
+}
+
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
