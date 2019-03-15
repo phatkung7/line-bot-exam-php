@@ -14,13 +14,16 @@
     $userID = $arrayJson['events'][0]['source']['userId'];
 
     switch ($message) {
-    case "Quick Reply":
+    case "QR":
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "Hello Quick Reply!!!";
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Camera Roll"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Camera Roll";
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
+            $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "location";  
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "Location";
 	    replyMsg($arrayHeader,$arrayPostData);	    
 	break;
     case "ผู้ใช้งานใหม่":
