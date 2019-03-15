@@ -294,13 +294,12 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-    
-    elseif($query="hfm"){
+    }elseif($query="hfm"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-    elseif($query="flu"){
+    }elseif($query="flu"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
