@@ -21,17 +21,17 @@
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=dfh";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคไข้เลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "โรคมือเท้าปาก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=2";
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=hfm";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "สถานการณ์-โรคมือเท้าปาก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['label'] = "โรคไข้หวัดใหญ่"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "q=3";
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "q=flu";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['displayText'] = "สถานการณ์-โรคไข้หวัดใหญ่";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
@@ -288,19 +288,19 @@
 // Query String
     $query = (!empty($_GET['q'])) ? $_GET['q']  : '' ;
     switch ($query) {
-    case "1":
+    case "dhf":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
         break;
-    case "2":
+    case "hfm":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
         break;
-    case "3":
+    case "flu":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
