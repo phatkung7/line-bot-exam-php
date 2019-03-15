@@ -18,16 +18,16 @@
     switch ($message) {
     case "สถานการณ์โรค" :
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "Hello Quick Reply!!!";
+            //$arrayPostData['messages'][0]['type'] = "text";
+            //$arrayPostData['messages'][0]['text'] = "กรุณาเลือกชื่อโรคที่ต้องการดูสถานการณ์";
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "ไข้เลือดออก"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคเลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "มือเท้าปาก"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "โรคมือเท้าปาก"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=2";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "สถานการณ์-โรคมือเท้าปาก";
 		    
