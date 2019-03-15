@@ -13,7 +13,7 @@
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
     // Query String
-    $query = (isset($_REQUEST['itemid'])) ? $_REQUEST['itemid']  : '' ;
+    $query = (isset($_GET['itemid'])) ? $_GET['itemid']  : '' ;
 
     switch ($message) {
     case "สถานการณ์โรค" :
