@@ -16,7 +16,7 @@
     $reply = $arrayJson['events'][0]['postback']['data'];
     if(isset($reply)){
 	    
-	    if($reply=="dis=hdf"){
+	    if($reply=="dis=dhf"){
 		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
 		    $arrayPostData['messages'][0]['type'] = "image";
