@@ -13,7 +13,7 @@
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
     // Query String
-    $disease = (!empty($_GET['itemid'])) ? $_GET['itemid'] : 0;
+    $disease = isset($_GET['dis']) ? $_GET['dis'] : "";
 
     switch ($message) {
     case "สถานการณ์โรค" :
@@ -23,17 +23,17 @@
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "itemid=dhf";
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "dis=dhf";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคไข้เลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "โรคมือเท้าปาก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "itemid=hfm";
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "dis=hfm";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "สถานการณ์-โรคมือเท้าปาก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['label'] = "โรคไข้หวัดใหญ่"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "itemid=flu";
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "dis=flu";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['displayText'] = "สถานการณ์-โรคไข้หวัดใหญ่";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
