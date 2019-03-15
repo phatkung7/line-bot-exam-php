@@ -113,19 +113,7 @@
             $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);
-        break;
-	case "สถานการณ์-โรคไข้หวัดใหญ่":
-            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
-            $arrayPostData['messages'][0]['type'] = "image";
-            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
-            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
-            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/flu-graph.png";
-            $arrayPostData['messages'][1]['type'] = "image";
-            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
-            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
-            replyMsg($arrayHeader,$arrayPostData);
-        break;	    
+        break;    
         case "สถานการณ์ flu":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
@@ -300,31 +288,27 @@
     //     replyMsg($arrayHeader,$arrayPostData);
     // }
 
-    switch ($disease) {
-    case "dhf":
+    if($disease=="dhf"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-        break;
-    case "hfm":
+    }elseif($disease=="hfm"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-        break;
-    case "flu":
+    }elseif($disease=="flu"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-        break;
-     default:
+    }else{
 	$arrayPostData['messages'][0]['type'] = "sticker";
         $arrayPostData['messages'][0]['packageId'] = "2";
         $arrayPostData['messages'][0]['stickerId'] = "171";
 	replyMsg($arrayHeader,$arrayPostData);    
-}
+    }
 //     if($disease = "dhf"){
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 //         $arrayPostData['messages'][0]['type'] = "text";
