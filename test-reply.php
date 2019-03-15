@@ -12,7 +12,9 @@
     $message = $arrayJson['events'][0]['message']['text'];
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
-    
+    // Query String
+    $query = (isset($_REQUEST['itemid'])) ? $_REQUEST['itemid']  : '' ;
+
     switch ($message) {
     case "สถานการณ์โรค" :
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -21,17 +23,17 @@
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=dfh";
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "itemid=dfh";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคไข้เลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "โรคมือเท้าปาก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=hfm";
+	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "itemid=hfm";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "สถานการณ์-โรคมือเท้าปาก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['label'] = "โรคไข้หวัดใหญ่"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "q=flu";
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "itemid=flu";
             $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['displayText'] = "สถานการณ์-โรคไข้หวัดใหญ่";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
@@ -285,8 +287,7 @@
     //     $arrayPostData['messages'][1]['stickerId'] = "131";
     //     replyMsg($arrayHeader,$arrayPostData);
     // }
-// Query String
-    $query = (isset($_GET['q'])) ? $_GET['q']  : '' ;
+
     switch ($query) {
     case "dhf":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
