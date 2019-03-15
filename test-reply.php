@@ -14,6 +14,12 @@
     $userID = $arrayJson['events'][0]['source']['userId'];
 
     switch ($message) {
+    case "Quick Reply":
+	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "Hello Quick Reply!!!";    
+	    replyMsg($arrayHeader,$arrayPostData);	    
+	break;
     case "ผู้ใช้งานใหม่":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
