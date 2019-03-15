@@ -15,6 +15,14 @@
     // Query String
     $disease = (isset($_POST['dis'])) ? $_POST['dis'] : "";
 
+    $reply = $arrayJson['events'][0]['postback']['data'];
+    if(isset($reply)){
+	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$reply. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+            replyMsg($arrayHeader,$arrayPostData);    
+    }
+
     switch ($message) {
     case "สถานการณ์โรค" :
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
