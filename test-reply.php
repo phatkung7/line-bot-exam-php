@@ -12,18 +12,31 @@
     $message = $arrayJson['events'][0]['message']['text'];
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
+    // Query String
+    $q = (!empty($_GET['q'])) ? $_GET['q']  : '0' ;
 
     switch ($message) {
-    case "QR":
+    case "สถานการณ์โรค" :
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "text";
             $arrayPostData['messages'][0]['text'] = "Hello Quick Reply!!!";
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
-            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Camera Roll";
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
-            $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "location";  
-	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "Location";
+            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Postback"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
+            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "ไข้เลือดออก";
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
+            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Postback"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=2";
+            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "มือเท้าปาก";
+		    
+// 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
+//             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
+// 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "Camera Roll";
+// 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
+//             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "location";  
+// 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "Location";
 	    replyMsg($arrayHeader,$arrayPostData);	    
 	break;
     case "ผู้ใช้งานใหม่":
@@ -168,6 +181,30 @@
 //         $arrayPostData['messages'][0]['text'] = "เราไม่เข้าใจคำถามของท่าน กรุณาใช้คำถามรูปแบบดังนี้ เช่น สถานการณ์ ไข้เลือดออก ,เวร sat wk 10 ,estimates การเบิกจ่าย";
 //         replyMsg($arrayHeader,$arrayPostData);
     }
+
+	if($q="1"){
+	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/dhf-graph.png";
+            $arrayPostData['messages'][1]['type'] = "image";
+            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+            replyMsg($arrayHeader,$arrayPostData);	
+	}else if($q="2){
+	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/hfm-graph.png";
+            $arrayPostData['messages'][1]['type'] = "image";
+            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+            replyMsg($arrayHeader,$arrayPostData);
+	}
 //     case "กรมควบคุมโรค":
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 //         $arrayPostData['messages'][0]['type'] = "text";
