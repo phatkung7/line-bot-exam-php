@@ -15,8 +15,8 @@
 
     $reply = $arrayJson['events'][0]['postback']['data'];
     if(isset($reply)){
-	    $disease = explode("=",$reply)
-	    if($disease[1]=="dhf"){
+	    
+	    if($reply=="dis=hdf"){
 		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
 		    $arrayPostData['messages'][0]['type'] = "image";
@@ -27,7 +27,7 @@
 		    $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
 		    $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
 		    replyMsg($arrayHeader,$arrayPostData);
-	    }elseif($disease[1]=="hfm"){
+	    }elseif($reply=="dis=hfm"){
 		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
 		    $arrayPostData['messages'][0]['type'] = "image";
@@ -38,7 +38,7 @@
 		    $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
 		    $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
 		    replyMsg($arrayHeader,$arrayPostData);
-	    }elseif($disease[1]=="flu"){
+	    }elseif($reply=="dis=flu"){
 		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
 		    $arrayPostData['messages'][0]['type'] = "image";
