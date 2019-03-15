@@ -13,8 +13,7 @@
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
     // Query String
-    $query = (!empty($_GET['itemid'])) ? $_GET['itemid']  : '' ;
-    echo $query;
+    $disease = (!empty($_GET['itemid'])) ? $_GET['itemid'] : 0;
 
     switch ($message) {
     case "สถานการณ์โรค" :
@@ -290,20 +289,20 @@
     // }
 
     
-    if($query="dhf"){
+    if($disease = "dhf"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-    }else if($query="hfm"){
+    }else if($disease = "hfm"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
-    }else if($query="flu"){
+    }else if($disease = "flu"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$query. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
         replyMsg($arrayHeader,$arrayPostData);
     }else{
 	$arrayPostData['messages'][0]['type'] = "sticker";
