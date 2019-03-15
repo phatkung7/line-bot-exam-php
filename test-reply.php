@@ -12,15 +12,50 @@
     $message = $arrayJson['events'][0]['message']['text'];
     // Get userID for Permission
     $userID = $arrayJson['events'][0]['source']['userId'];
-    // Query String
-    $disease = (isset($_POST['dis'])) ? $_POST['dis'] : "";
 
     $reply = $arrayJson['events'][0]['postback']['data'];
     if(isset($reply)){
-	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$reply. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
-            replyMsg($arrayHeader,$arrayPostData);    
+	    $disease = explode("=",$reply)
+	    if($disease[1]=="dhf"){
+		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
+		    $arrayPostData['messages'][0]['type'] = "image";
+		    $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+		    $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+		    $image_url2 = "https://flu.ddc.moph.go.th/img-bot/dhf-graph.png";
+		    $arrayPostData['messages'][1]['type'] = "image";
+		    $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+		    $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+		    replyMsg($arrayHeader,$arrayPostData);
+	    }elseif($disease[1]=="hfm"){
+		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
+		    $arrayPostData['messages'][0]['type'] = "image";
+		    $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+		    $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+		    $image_url2 = "https://flu.ddc.moph.go.th/img-bot/hfm-graph.png";
+		    $arrayPostData['messages'][1]['type'] = "image";
+		    $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+		    $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+		    replyMsg($arrayHeader,$arrayPostData);
+	    }elseif($disease[1]=="flu"){
+		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
+		    $arrayPostData['messages'][0]['type'] = "image";
+		    $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+		    $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+		    $image_url2 = "https://flu.ddc.moph.go.th/img-bot/flu-graph.png";
+		    $arrayPostData['messages'][1]['type'] = "image";
+		    $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+		    $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+		    replyMsg($arrayHeader,$arrayPostData);
+	    }else{
+		    $arrayPostData['messages'][0]['type'] = "sticker";
+		    $arrayPostData['messages'][0]['packageId'] = "2";
+		    $arrayPostData['messages'][0]['stickerId'] = "171";
+		    replyMsg($arrayHeader,$arrayPostData);    
+	    }	    
+	     
     }
 
     switch ($message) {
