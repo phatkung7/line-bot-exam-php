@@ -17,10 +17,27 @@
 
     $reply = $arrayJson['events'][0]['postback']['data'];
     if(isset($reply)){
-	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$reply. " กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
-            replyMsg($arrayHeader,$arrayPostData);    
+	    if($reply=="dhf"){
+		$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+		pushMsg($arrayHeader,$arrayPostData);
+	    }elseif($reply=="hfm"){
+		$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+		pushMsg($arrayHeader,$arrayPostData);
+	    }elseif($reply=="flu"){
+		$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
+		pushMsg($arrayHeader,$arrayPostData);
+	     }else{
+		$arrayPostData['messages'][0]['type'] = "sticker";
+		$arrayPostData['messages'][0]['packageId'] = "2";
+		$arrayPostData['messages'][0]['stickerId'] = "171";
+		replyMsg($arrayHeader,$arrayPostData);    
+	        }        
     }
 
     switch ($message) {
@@ -296,27 +313,6 @@
     //     replyMsg($arrayHeader,$arrayPostData);
     // }
 
-    if($disease=="dhf"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
-        pushMsg($arrayHeader,$arrayPostData);
-    }elseif($disease=="hfm"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
-        pushMsg($arrayHeader,$arrayPostData);
-    }elseif($disease=="flu"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "รหัสผู้ใช้งานของท่านคือ ".$disease." กรุณานำรหัสที่แสดงไปลงทะเบียนในเว็ปไซต์";
-        pushMsg($arrayHeader,$arrayPostData);
-    }else{
-	$arrayPostData['messages'][0]['type'] = "sticker";
-        $arrayPostData['messages'][0]['packageId'] = "2";
-        $arrayPostData['messages'][0]['stickerId'] = "171";
-	replyMsg($arrayHeader,$arrayPostData);    
-    }
 //     if($disease = "dhf"){
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 //         $arrayPostData['messages'][0]['type'] = "text";
