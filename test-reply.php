@@ -24,12 +24,17 @@
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
-            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคเลือดออก";
+            $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคไข้เลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['label'] = "โรคมือเท้าปาก"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['data'] = "q=2";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['displayText'] = "สถานการณ์-โรคมือเท้าปาก";
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['type'] = "action";
+            $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['type'] = "postback";  
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['label'] = "โรคไข้หวัดใหญ่"; 
+	    $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['data'] = "q=2";
+            $arrayPostData['messages'][0]['quickReply']['items'][2]['action']['displayText'] = "สถานการณ์-โรคไข้หวัดใหญ่";
 		    
 // 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
 //             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "cameraRoll";  
@@ -145,6 +150,18 @@
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);
         break;
+	case "สถานการณ์-โรคไข้เลือดออก":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/dhf-graph.png";
+            $arrayPostData['messages'][1]['type'] = "image";
+            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+            replyMsg($arrayHeader,$arrayPostData);
+        break;
         case "สถานการณ์ มือเท้าปาก":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
@@ -182,32 +199,6 @@
 //         replyMsg($arrayHeader,$arrayPostData);
     }
 
-	switch ($q) {
-		case "1" :
-		    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-		    $image_url1 = "https://flu.ddc.moph.go.th/img-bot/dhf-map.png";
-		    $arrayPostData['messages'][0]['type'] = "image";
-		    $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
-		    $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
-		    $image_url2 = "https://flu.ddc.moph.go.th/img-bot/dhf-graph.png";
-		    $arrayPostData['messages'][1]['type'] = "image";
-		    $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
-		    $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
-		    replyMsg($arrayHeader,$arrayPostData);
-	    break;
-		case "2" :
-	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
-            $arrayPostData['messages'][0]['type'] = "image";
-            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
-            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
-            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/hfm-graph.png";
-            $arrayPostData['messages'][1]['type'] = "image";
-            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
-            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
-            replyMsg($arrayHeader,$arrayPostData);
-	    break;
-	}
 //     case "กรมควบคุมโรค":
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 //         $arrayPostData['messages'][0]['type'] = "text";
