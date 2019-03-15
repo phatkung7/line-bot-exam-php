@@ -23,7 +23,7 @@
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
-	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "itemid=dfh";
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "itemid=dhf";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['displayText'] = "สถานการณ์-โรคไข้เลือดออก";
 	    $arrayPostData['messages'][0]['quickReply']['items'][1]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][1]['action']['type'] = "postback";  
