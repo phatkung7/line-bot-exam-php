@@ -193,7 +193,7 @@
             $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);	
-	}else if($q="2){
+	}else if($q="2"){
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/hfm-map.png";
             $arrayPostData['messages'][0]['type'] = "image";
