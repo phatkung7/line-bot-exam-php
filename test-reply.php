@@ -286,7 +286,7 @@
     //     replyMsg($arrayHeader,$arrayPostData);
     // }
 // Query String
-    $query = (!empty($_GET['q'])) ? $_GET['q']  : '' ;
+    $query = (isset($_GET['q'])) ? $_GET['q']  : '' ;
     switch ($query) {
     case "dhf":
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
