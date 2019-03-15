@@ -20,7 +20,7 @@
 	    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             //$arrayPostData['messages'][0]['type'] = "text";
             //$arrayPostData['messages'][0]['text'] = "กรุณาเลือกชื่อโรคที่ต้องการดูสถานการณ์";
-	    //$arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
+	    $arrayPostData['messages'][0]['quickReply']['items'][0]['type'] = "action";
             $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['type'] = "postback";  
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['label'] = "โรคไข้เลือดออก"; 
 	    $arrayPostData['messages'][0]['quickReply']['items'][0]['action']['data'] = "q=1";
