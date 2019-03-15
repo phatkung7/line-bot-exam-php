@@ -114,6 +114,18 @@
             $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
             replyMsg($arrayHeader,$arrayPostData);
         break;
+	case "สถานการณ์-โรคไข้หวัดใหญ่":
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url1;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url1;
+            $image_url2 = "https://flu.ddc.moph.go.th/img-bot/flu-graph.png";
+            $arrayPostData['messages'][1]['type'] = "image";
+            $arrayPostData['messages'][1]['originalContentUrl'] = $image_url2;
+            $arrayPostData['messages'][1]['previewImageUrl'] = $image_url2;
+            replyMsg($arrayHeader,$arrayPostData);
+        break;	    
         case "สถานการณ์ flu":
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $image_url1 = "https://flu.ddc.moph.go.th/img-bot/flu-map.png";
