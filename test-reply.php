@@ -23,16 +23,18 @@
     $dbname = "line-ddc-bot";
     $date_time = date("Y-m-d H:i:s");
 
-   // Create connection
-   $conn = new mysqli($servername, $username, $password, $dbname);
+   if(!empty($message){
+	   // Create connection
+	   $conn = new mysqli($servername, $username, $password, $dbname);
 
-   // Check connection
-   if (!$conn->connect_error) {
-    	//Insert Log
-	$sql = "INSERT INTO msg_reply_log (msg, userId, date_time) VALUES ('".$message."','".$userID."','".$date_time."')";
-	   $conn->query($sql);
-	   $conn->close();
-   } 
+	   // Check connection
+	   if (!$conn->connect_error) {
+		//Insert Log
+		$sql = "INSERT INTO msg_reply_log (msg, userId, date_time) VALUES ('".$message."','".$userID."','".$date_time."')";
+		   $conn->query($sql);
+		   $conn->close();
+	   } 
+   }
    
     
     if(isset($reply)){
@@ -377,7 +379,7 @@ function replyMsg($arrayHeader,$arrayPostData){
         curl_close ($ch);
 }
 function Getprofiles($userID){
-        $strUrl = "https://api.line.me/v2/bot/profile/".$userID;
+        $strUrl = "https://api.line.me/v2/bot/profile/{".$userID."}";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
