@@ -9,10 +9,10 @@
    $conn = new mysqli($servername, $username, $password);
 
    // Check connection
-   if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+   if (!$conn->connect_error) {
+    	echo 'OK';
    } 
-   echo "Connected successfully";
+   
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
