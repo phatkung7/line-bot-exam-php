@@ -23,7 +23,7 @@
     $dbname = "line-ddc-bot";
     $date_time = date("Y-m-d H:i:s");
 
-   if(!empty($message)){
+   
 	   // Create connection
 	   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -34,7 +34,6 @@
 		   $conn->query($sql);
 		   $conn->close();
 	   } 
-   }
    
     
     if(isset($reply)){
@@ -383,9 +382,9 @@ function Getprofiles($arrayHeader,$userID){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
-        //curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-        //curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
