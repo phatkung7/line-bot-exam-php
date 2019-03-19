@@ -23,7 +23,7 @@
     $dbname = "line-ddc-bot";
     $date_time = date("Y-m-d H:i:s");
 
-   
+   if(isset($message)){
 	   // Create connection
 	   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -34,7 +34,7 @@
 		   $conn->query($sql);
 		   $conn->close();
 	   } 
-   
+   }
     
     if(isset($reply)){
 	    
