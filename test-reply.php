@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set("Asia/Bangkok");
     $accessToken = "BFp/k4llCyFwkRAb8hegDLslqqkiN1DGRrjmy5A5S4I7B/pCtGlRmgiEcI0nJH4rn2x+nwtwKPbkpiakQRzG9boMvYi+zulp6XXp2fI7U+roDbdhUN8P7V6y+MI1EQNkPOzMswduTYeyarU/gti+egdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     
     $content = file_get_contents('php://input');
@@ -243,6 +244,15 @@
         $arrayPostData['messages'][0]['text'] = "https://ddc.moph.go.th/th/site/office_other/view/law/7/8";
         replyMsg($arrayHeader,$arrayPostData);
         break;
+		    
+	case "ฉันชื่ออะไร" :
+        $profile = Getprofiles($userID);
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = json_encode($profile);
+        replyMsg($arrayHeader,$arrayPostData);
+	break;	
+		    
 // 	default:
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 //         $arrayPostData['messages'][0]['type'] = "text";
@@ -355,6 +365,19 @@
 
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+}
+function Getprofiles($userID){
+        $strUrl = "https://api.line.me/v2/bot/profile/".$userID;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
