@@ -20,7 +20,7 @@
     $username = "root";
     $password = "gvgvH,vkiN";
     $dbname = "line-ddc-bot";
-    $date_time = date('Y-d-m H:i:s');
+    $date_time = date("Y-m-d H:i:s");
 
    // Create connection
    $conn = new mysqli($servername, $username, $password, $dbname);
