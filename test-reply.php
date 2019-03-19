@@ -346,7 +346,7 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
 }
-exit;
+//exit;
 
 $servername = "amrboe.moph.go.th";
 $username = "root";
