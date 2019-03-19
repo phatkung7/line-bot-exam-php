@@ -1,19 +1,6 @@
 <?php
     $accessToken = "BFp/k4llCyFwkRAb8hegDLslqqkiN1DGRrjmy5A5S4I7B/pCtGlRmgiEcI0nJH4rn2x+nwtwKPbkpiakQRzG9boMvYi+zulp6XXp2fI7U+roDbdhUN8P7V6y+MI1EQNkPOzMswduTYeyarU/gti+egdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     
-    $servername = "203.157.103.225";
-    $username = "root";
-    $password = "gvgvH,vkiN";
-
-   // Create connection
-   $conn = new mysqli($servername, $username, $password);
-
-   // Check connection
-   if (!$conn->connect_error) {
-    	echo 'OK';
-   } 
-   
-    
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
 
@@ -27,6 +14,22 @@
     $userID = $arrayJson['events'][0]['source']['userId'];
 
     $reply = $arrayJson['events'][0]['postback']['data'];
+    
+    //Connect To DB AMR Site
+    $servername = "203.157.103.225";
+    $username = "root";
+    $password = "gvgvH,vkiN";
+
+   // Create connection
+   $conn = new mysqli($servername, $username, $password);
+
+   // Check connection
+   if (!$conn->connect_error) {
+    	//Insert Log
+	echo 'OK';
+   } 
+   
+    
     if(isset($reply)){
 	    
 	    if($reply=="dis=dhf"){
