@@ -379,7 +379,7 @@ function replyMsg($arrayHeader,$arrayPostData){
         curl_close ($ch);
 }
 function Getprofiles($arrayHeader,$userID){
-        $strUrl = "https://api.line.me/v2/bot/profile/{".$userID."}";
+        $strUrl = "https://api.line.me/v2/bot/profile/".$userID;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
