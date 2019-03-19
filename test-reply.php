@@ -19,14 +19,18 @@
     $servername = "203.157.103.225";
     $username = "root";
     $password = "gvgvH,vkiN";
+    $dbname = "line-ddc-bot";
+    $date_time = date('Y-d-m H:i:s');
 
    // Create connection
-   $conn = new mysqli($servername, $username, $password);
+   $conn = new mysqli($servername, $username, $password, $dbname);
 
    // Check connection
    if (!$conn->connect_error) {
     	//Insert Log
-	echo 'OK';
+	$sql = "INSERT INTO msg_reply_log (msg, userId, date_time) VALUES ('".$message."','".$userID."','".$date_time."')";
+	   $conn->query($sql);
+	   $conn->close();
    } 
    
     
