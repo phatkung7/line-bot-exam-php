@@ -30,7 +30,9 @@
 	   // Check connection
 	   if (!$conn->connect_error) {
 		//Insert Log
-		$sql = "INSERT INTO msg_reply_log (msg, userId, date_time) VALUES ('".$message."','".$userID."','".$date_time."')";
+		//getProfile
+		$display_name = getProfile($userID,$accessToken);
+		$sql = "INSERT INTO msg_reply_log (msg, userId, display_name, date_time) VALUES ('".$message."','".$userID."','".$display_name."','".$date_time."')";
 		   $conn->query($sql);
 		   $conn->close();
 	   } 
