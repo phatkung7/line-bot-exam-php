@@ -250,7 +250,7 @@
         $profile = getProfile($userID,$accessToken);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $profile;
+        $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$profile;
         replyMsg($arrayHeader,$arrayPostData);
 	break;	
 		    
