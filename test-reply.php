@@ -275,11 +275,11 @@
         replyMsg($arrayHeader,$arrayPostData);
 	break;
 		    
-// 	default:
-//         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-//         $arrayPostData['messages'][0]['type'] = "text";
-//         $arrayPostData['messages'][0]['text'] = "เราไม่เข้าใจคำถามของท่าน กรุณาใช้คำถามรูปแบบดังนี้ เช่น สถานการณ์ ไข้เลือดออก ,เวร sat wk 10 ,estimates การเบิกจ่าย";
-//         replyMsg($arrayHeader,$arrayPostData);
+ 	default:
+         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+         $arrayPostData['messages'][0]['type'] = "text";
+         $arrayPostData['messages'][0]['text'] = "เราไม่เข้าใจคำถามของท่าน กรุณาใช้คำถามรูปแบบดังนี้ เช่น สถานการณ์ ไข้เลือดออก ,เวร sat wk 10 ,estimates การเบิกจ่าย";
+         replyMsg($arrayHeader,$arrayPostData);
     }
 
 //     case "กรมควบคุมโรค":
