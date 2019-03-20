@@ -256,6 +256,25 @@
         replyMsg($arrayHeader,$arrayPostData);
 	break;	
 		    
+	case "สวัสดี" :
+        $profile = getProfile($userID,$accessToken);
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "สวัสดีคุณ ".$profile;
+        replyMsg($arrayHeader,$arrayPostData);
+	break;
+		    
+	case "หวย" :
+        $profile = getProfile($userID,$accessToken);
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "งวดหน้าซื้อเลย 999 นะ คุณ".$profile;
+        $arrayPostData['messages'][1]['type'] = "sticker";
+        $arrayPostData['messages'][1]['packageId'] = "1";
+        $arrayPostData['messages'][1]['stickerId'] = "417";
+        replyMsg($arrayHeader,$arrayPostData);
+	break;
+		    
 // 	default:
 //         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 //         $arrayPostData['messages'][0]['type'] = "text";
